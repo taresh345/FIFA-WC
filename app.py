@@ -282,6 +282,11 @@ if user_menu == 'Historical Comparison and Insights':
 
     fig = px.bar(tmp,x="country", y='3rd', color='country', title="Third place")
     st.plotly_chart(fig, use_container_width=True)
+
+
+    # fig = px.bar(tmp, x="country", y="value", color="variable", title="Long-Form Input")
+    # st.plotly_chart(fig, use_container_width=True)
+
     
     # pandas melt function not working so 3 seperate bar charts 
 
