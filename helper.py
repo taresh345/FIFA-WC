@@ -60,13 +60,13 @@ def Overall_data(year, wc):
 
 def win_stats(wc):
     win = wc['Winner'].value_counts().to_frame().reset_index()
-#     win.rename(columns={"count":'winner'},inplace=True)
+    win.rename(columns={"count":'winner'},inplace=True)
     st.write(win)
     
     sec = wc['Runners-Up'].value_counts().to_frame().reset_index()
-#     sec.rename(columns={"count":'runner up'},inplace=True)
-    sec=win.merge(sec,on='index',how='outer')
-    print(sec)
+    sec.rename(columns={"count":'2nd'},inplace=True)
+    sec=win.merge(sec,on='Winner',how='outer')
+    st.write(sec)
     third = wc['Third'].value_counts().to_frame().reset_index()
     third=third.merge(sec,on='index',how='outer')
     third=third.fillna(0)
