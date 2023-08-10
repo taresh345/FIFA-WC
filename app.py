@@ -287,7 +287,7 @@ if user_menu == 'Historical Comparison and Insights':
 
     st.header('Hosting frequency')
     host = wc['Country'].value_counts().reset_index()
-    st.table(host)
+    # st.table(host)
     fig = px.bar(host, x="Country", y='count',
                  barmode='group',
                  height=500)
