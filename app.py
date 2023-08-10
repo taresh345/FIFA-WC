@@ -269,9 +269,10 @@ if user_menu == 'Historical Comparison and Insights':
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
     tmp=tmp.rename(columns={'index':'country'})
-    fig = px.scatter(tmp, y=["Winner", 'Runners-Up', 'Third'], x="country")
-    fig.update_traces(marker_size=10)
+    fig = px.bar(tmp, x="country", y=["Winner", "Runners-Up", "Third"], title="Wide-Form Input")
+
     st.plotly_chart(fig, use_container_width=True)
+
 
     # -_______________ hosting frequency___________________________
     st.write('\n')
