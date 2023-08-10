@@ -66,7 +66,7 @@ def win_stats(wc):
     sec = wc['Runners-Up'].value_counts().to_frame()
     sec.rename(columns={"count":'2nd'},inplace=True)
     st.write(sec)
-    sec=win.merge(sec,on=sec.index,how='outer')
+    sec=win.merge(sec,on='Winner',how='outer')
     st.write(sec)
     third = wc['Third'].value_counts().to_frame().reset_index()
     third=third.merge(sec,on='index',how='outer')
