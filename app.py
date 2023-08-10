@@ -252,7 +252,7 @@ if user_menu == 'Historical Comparison and Insights':
     fig = px.bar(tmp, x='Year', y='Attendance')
     st.plotly_chart(fig, use_container_width=True)
 
-    st.subheader("The FIFA World Cup editions of 1942 and 1946 were not held due to the "
+    st.write("The FIFA World Cup editions of 1942 and 1946 were not held due to the "
                  "occurrence of World War 2,"
                  " resulting in their suspension. Consequently, there were no attendance figures recorded for these tournaments.")
     # ____________________________Winner, Runners-Up, Third, Fourth______________________________________________________
