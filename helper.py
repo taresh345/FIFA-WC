@@ -78,11 +78,8 @@ def win_stats(wc):
     st.write(third)
     
     
-#     third.rename(columns={"count":'third'},inplace=True)
    
-#     temp = pd.concat([win, sec, third], axis=1).fillna(0).astype(int).reset_index()
-    # temp = pd.melt(temp, id_vars=['index'], value_vars=["Winner", "Runners-Up", "Third"])
-    # a=temp.copy()
+    third = pd.melt(third, id_vars=['country'], value_vars=["1st", "2nd", "3rd"])
     
     return third
 
