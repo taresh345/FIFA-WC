@@ -59,12 +59,12 @@ def Overall_data(year, wc):
 
 
 def win_stats(wc):
-    win = wc['Winner'].value_counts().to_frame()
+    win = wc['Winner'].value_counts().to_frame().reset_index()
     win.rename(columns={"count":'1st',"Winner":"country"},inplace=True)
     st.write(win)
     
-    sec = wc['Runners-Up'].value_counts().to_frame()
-    sec.rename(columns={"count":'2nd',"Winner":"country"},inplace=True)
+    sec = wc['Runners-Up'].value_counts().to_frame().reset_index()
+    sec.rename(columns={"count":'2nd',"Runners-Up":"country"},inplace=True)
     st.write(sec)
     sec=win.merge(sec,on='country',how='outer')
     st.write(sec)
