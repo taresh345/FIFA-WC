@@ -268,7 +268,7 @@ if user_menu == 'Historical Comparison and Insights':
     st.header(' Winner, Runners-Up, Third:  top-performing teams in '
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
-    st.write(tmp.columns)
+    # st.write(tmp.columns)
     st.table(tmp)
 
     fig = px.bar(tmp,x="index", y='Winner', color='index' , title="Winners")
