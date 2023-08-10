@@ -62,6 +62,7 @@ def win_stats(wc):
     sec = wc['Runners-Up'].value_counts()
     third = wc['Third'].value_counts()
     temp = pd.concat([win, sec, third], axis=1).fillna(0).astype(int).reset_index()
+    temp = pd.melt(temp, id_vars=['index'], value_vars=["Winner", "Runners-Up", "Third"])
 
     return temp
 
