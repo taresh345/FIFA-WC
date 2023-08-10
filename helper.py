@@ -59,28 +59,30 @@ def Overall_data(year, wc):
 
 
 def win_stats(wc):
+
+    """This function differs from the one in local storage(PC) because on deploying 
+    streamlit it was giving different colum names and hence could not display 
+    the stacked bar chart """
+
+    
     win = wc['Winner'].value_counts().to_frame().reset_index()
     win.rename(columns={"count":'1st',"Winner":"country"},inplace=True)
-    st.write(win)
     
     sec = wc['Runners-Up'].value_counts().to_frame().reset_index()
     sec.rename(columns={"count":'2nd',"Runners-Up":"country"},inplace=True)
     sec=win.merge(sec,on='country',how='outer')
-    st.write(sec)
     
     
     third = wc['Third'].value_counts().to_frame().reset_index()
     third.rename(columns={"count":'3rd',"Third":"country"},inplace=True)
-    st.write(third)
     third=third.merge(sec,on='country',how='outer')
     third=third.fillna(0)
     third[['3rd','1st','2nd']]=third[['3rd','1st','2nd']].astype(int)
-    st.write(third)
     
     
    
     third = pd.melt(third, id_vars=['country'], value_vars=["1st", "2nd", "3rd"])
-    st.write(third)
+    
     
     return third
 
