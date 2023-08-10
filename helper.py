@@ -60,6 +60,7 @@ def Overall_data(year, wc):
 
 def win_stats(wc):
     win = wc['Winner'].value_counts()
+    st.write(win)
     sec = wc['Runners-Up'].value_counts()
     third = wc['Third'].value_counts()
     temp = pd.concat([win, sec, third], axis=1).fillna(0).astype(int).reset_index()
