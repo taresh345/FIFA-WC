@@ -268,7 +268,7 @@ if user_menu == 'Historical Comparison and Insights':
     st.header(' Winner, Runners-Up, Third:  top-performing teams in '
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
-    tmp = pd.melt(tmp, id_vars=['index'], value_vars=["Winner", "Runners-Up", "Third"])
+    
 
     fig = px.bar(tmp, x="index", y='value',color='variable', title="Wide-Form Input")
 
