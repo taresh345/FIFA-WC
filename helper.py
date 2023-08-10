@@ -74,7 +74,7 @@ def win_stats(wc):
     st.write(third)
     third=third.merge(sec,on='country',how='outer')
     third=third.fillna(0)
-    third[['Third','Winner','Runners-Up']]=third[['Third','Winner','Runners-Up']].astype(int)
+    third[['3rd','1st','2nd']]=third[['Third','Winner','Runners-Up']].astype(int)
     st.write(third)
     
     
