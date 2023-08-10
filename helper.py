@@ -60,6 +60,7 @@ def Overall_data(year, wc):
 
 def win_stats(wc):
     win = wc[['Winner']].value_counts().to_frame()
+    win.rename(columns={"count":'winner'},inplace=True)
     st.write(win)
     sec = wc['Runners-Up'].value_counts()
     st.write(sec)
