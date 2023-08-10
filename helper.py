@@ -59,20 +59,25 @@ def Overall_data(year, wc):
 
 
 def win_stats(wc):
-    win = wc[['Winner']].value_counts().to_frame()
-    win.rename(columns={"count":'winner'},inplace=True)
-    st.write(win)
+    win = wc['Winner'].value_counts().to_frame()
+    #     win.rename(columns={"count":'winner'},inplace=True)
+
+
     sec = wc['Runners-Up'].value_counts().to_frame()
-    sec.rename(columns={"count":'runner up'},inplace=True)
-    st.write(sec)
+    #     sec.rename(columns={"count":'runner up'},inplace=True)
+    sec = win.join(sec, how='outer')
+
     third = wc['Third'].value_counts().to_frame()
-    third.rename(columns={"count":'third'},inplace=True)
-    st.write(third)
-    temp = pd.concat([win, sec, third], axis=1).fillna(0).astype(int).reset_index()
+    third = third.join(sec, how='outer')
+    third = third.fillna(0).astype(int).reset_index()
+
+    #     third.rename(columns={"count":'third'},inplace=True)
+
+    #     temp = pd.concat([win, sec, third], axis=1).fillna(0).astype(int).reset_index()
     # temp = pd.melt(temp, id_vars=['index'], value_vars=["Winner", "Runners-Up", "Third"])
     # a=temp.copy()
-    st.write(temp)
-    return temp
+
+    return third
 
 
 def squad_by_year(df, selected_country, year, ccodes):
