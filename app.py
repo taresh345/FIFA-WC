@@ -269,7 +269,7 @@ if user_menu == 'Historical Comparison and Insights':
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
 
-    fig = px.bar(tmp, x="level_0", y='Winner', color='index', title="Winners")
+    fig = px.bar(tmp, x="level_0", y='count' , title="Winners")
     st.plotly_chart(fig, use_container_width=True)
 
 
