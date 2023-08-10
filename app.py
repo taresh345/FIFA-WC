@@ -7,7 +7,7 @@ import plotly.express as px
 
 matches = pd.read_csv('archive-WC/WorldCupMatches.csv')
 players = pd.read_csv("archive-WC/WorldCupPlayers.csv")
-wc = pd.read_csv("/archive-WC//WorldCups.csv")
+wc = pd.read_csv("archive-WC//WorldCups.csv")
 
 wc['Attendance'] = wc['Attendance'].str.replace('.', '')
 wc['Attendance'] = pd.to_numeric(wc['Attendance'])
