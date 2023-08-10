@@ -271,17 +271,17 @@ if user_menu == 'Historical Comparison and Insights':
     # st.write(tmp.columns)
     st.table(tmp)
 
-    fig = px.bar(tmp,x="country", y='1st', color='country' , title="Winners")
-    st.plotly_chart(fig, use_container_width=True)
+    # fig = px.bar(tmp,x="country", y='1st', color='country' , title="Winners")
+    # st.plotly_chart(fig, use_container_width=True)
 
 
-    fig = px.bar(tmp, x="country", y='2nd', color='country', title="Second Place")
-    st.plotly_chart(fig, use_container_width=True)
+    # fig = px.bar(tmp, x="country", y='2nd', color='country', title="Second Place")
+    # st.plotly_chart(fig, use_container_width=True)
 
 
 
-    fig = px.bar(tmp,x="country", y='3rd', color='country', title="Third place")
-    st.plotly_chart(fig, use_container_width=True)
+    # fig = px.bar(tmp,x="country", y='3rd', color='country', title="Third place")
+    # st.plotly_chart(fig, use_container_width=True)
 
 
     fig = px.bar(tmp, x="country", y="value", color="variable", title="Long-Form Input")
