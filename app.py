@@ -268,27 +268,14 @@ if user_menu == 'Historical Comparison and Insights':
     st.header(' Winner, Runners-Up, Third:  top-performing teams in '
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
-    # st.write(tmp.columns)
-    st.table(tmp)
-
-    # fig = px.bar(tmp,x="country", y='1st', color='country' , title="Winners")
-    # st.plotly_chart(fig, use_container_width=True)
-
-
-    # fig = px.bar(tmp, x="country", y='2nd', color='country', title="Second Place")
-    # st.plotly_chart(fig, use_container_width=True)
 
 
 
-    # fig = px.bar(tmp,x="country", y='3rd', color='country', title="Third place")
-    # st.plotly_chart(fig, use_container_width=True)
-
-
-    fig = px.bar(tmp, x="country", y="value", color="variable", title="Long-Form Input")
+    fig = px.bar(tmp, x="country", y="value", color="variable", title="winners,runnersup , third place ")
     st.plotly_chart(fig, use_container_width=True)
 
     
-    # pandas melt function not working so 3 seperate bar charts 
+
 
 
     # -_______________ hosting frequency___________________________
@@ -300,6 +287,7 @@ if user_menu == 'Historical Comparison and Insights':
 
     st.header('Hosting frequency')
     host = wc['Country'].value_counts().reset_index()
+    st.table(host)
     fig = px.bar(host, x="index", y='Country',
                  barmode='group',
                  height=500)
