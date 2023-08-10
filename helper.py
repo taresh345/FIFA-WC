@@ -80,6 +80,7 @@ def win_stats(wc):
     
    
     third = pd.melt(third, id_vars=['country'], value_vars=["1st", "2nd", "3rd"])
+    st.write(third)
     
     return third
 
