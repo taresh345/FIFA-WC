@@ -268,7 +268,8 @@ if user_menu == 'Historical Comparison and Insights':
     st.header(' Winner, Runners-Up, Third:  top-performing teams in '
               'each World Cup and consistent podium finishers')
     tmp = helper.win_stats(wc)
-    fig = px.bar(tmp, x="index", y=["Winner", 'Runners-Up', 'Third'],
+    tmp=tmp.rename(columns={'index':'country'})
+    fig = px.bar(tmp, x=tmp.country.values, y=["Winner", 'Runners-Up', 'Third'],
                  barmode='group',
                  height=500)
     st.plotly_chart(fig, use_container_width=True)
